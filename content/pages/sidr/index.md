@@ -31,6 +31,13 @@ custom_scripts:
 
 ---
 
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5245097431906186",
+    enable_page_level_ads: true
+  });
+</script>
+
 ![Image explanation](images/screenshots.png)
 
 You will be able to create multiple _sidrs_ on both sides of your web to make responsives menus (or not, it works perfectly on desktop too).

@@ -23,16 +23,6 @@
     <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ end }}
 
-  {{/* % if page.url == '/sidr/' %}
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-5245097431906186",
-      enable_page_level_ads: true
-    });
-  </script>
-  {% endif %}*/}}
-
   {{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/spf13/hugo/blob/master/tpl/tplimpl/template_embedded.go#L158 */}}
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/google_news.html" . }}
