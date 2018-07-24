@@ -10,7 +10,6 @@ RUN mkdir -p /code
 COPY --from=node-builder /code/config.toml /code/config.toml
 COPY --from=node-builder /code/archetypes /code/archetypes
 COPY --from=node-builder /code/content /code/content
-COPY --from=node-builder /code/layouts /code/layouts
 COPY --from=node-builder /code/themes /code/themes
 WORKDIR /code
 RUN hugo
@@ -18,6 +17,9 @@ RUN hugo
 FROM nginx:mainline-alpine
 LABEL maintainer="alberto@berriart.com"
 COPY --from=go-builder /code/public /usr/share/nginx/html
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
+RUN git clone https://github.com/artberri/reveal.js.git --branch berriart-talks --single-branch /usr/share/nginx/talks && rm -rf /usr/share/nginx/talks/.git
 RUN rm /etc/nginx/nginx.conf
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/nginx.conf
